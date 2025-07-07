@@ -153,6 +153,154 @@ void test_pmdmxvbf16gerx2pp(unsigned char *vdmrp, unsigned char *vpp, vector uns
   *((__dmr1024 *)resp) = vdmr;
 }
 
+// CHECK-LABEL: void @test_dmxvf16gerx2(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2:![0-9]+]]
+// CHECK-NEXT:    [[TMP1:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.dmxvf16gerx2(<256 x i1> [[TMP0]], <16 x i8> [[VC:%.*]])
+// CHECK-NEXT:    store <1024 x i1> [[TMP1]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6:![0-9]+]]
+// CHECK-NEXT:    ret void
+//
+void test_dmxvf16gerx2(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_dmxvf16gerx2(&vdmr, vp, vc);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_dmxvf16gerx2nn(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.dmxvf16gerx2nn(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]])
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_dmxvf16gerx2nn(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_dmxvf16gerx2nn(&vdmr, vp, vc);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_dmxvf16gerx2np(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.dmxvf16gerx2np(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]])
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_dmxvf16gerx2np(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_dmxvf16gerx2np(&vdmr, vp, vc);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_dmxvf16gerx2pn(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.dmxvf16gerx2pn(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]])
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_dmxvf16gerx2pn(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_dmxvf16gerx2pn(&vdmr, vp, vc);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_dmxvf16gerx2pp(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.dmxvf16gerx2pp(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]])
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_dmxvf16gerx2pp(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_dmxvf16gerx2pp(&vdmr, vp, vc);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_pmdmxvf16gerx2(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP1:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.pmdmxvf16gerx2(<256 x i1> [[TMP0]], <16 x i8> [[VC:%.*]], i32 0, i32 0, i32 0)
+// CHECK-NEXT:    store <1024 x i1> [[TMP1]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_pmdmxvf16gerx2(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_pmdmxvf16gerx2(&vdmr, vp, vc, 0, 0, 0);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_pmdmxvf16gerx2nn(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.pmdmxvf16gerx2nn(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]], i32 0, i32 0, i32 0)
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_pmdmxvf16gerx2nn(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_pmdmxvf16gerx2nn(&vdmr, vp, vc, 0, 0, 0);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_pmdmxvf16gerx2np(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.pmdmxvf16gerx2np(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]], i32 0, i32 0, i32 0)
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_pmdmxvf16gerx2np(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_pmdmxvf16gerx2np(&vdmr, vp, vc, 0, 0, 0);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_pmdmxvf16gerx2pn(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.pmdmxvf16gerx2pn(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]], i32 0, i32 0, i32 0)
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_pmdmxvf16gerx2pn(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_pmdmxvf16gerx2pn(&vdmr, vp, vc, 0, 0, 0);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
+// CHECK-LABEL: void @test_pmdmxvf16gerx2pp(
+// CHECK-NEXT:  [[ENTRY:.*:]]
+// CHECK-NEXT:    [[TMP0:%.*]] = load <1024 x i1>, ptr [[VDMRP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    [[TMP1:%.*]] = load <256 x i1>, ptr [[VPP:%.*]], align 32, !tbaa [[TBAA2]]
+// CHECK-NEXT:    [[TMP2:%.*]] = tail call <1024 x i1> @llvm.ppc.mma.pmdmxvf16gerx2pp(<1024 x i1> [[TMP0]], <256 x i1> [[TMP1]], <16 x i8> [[VC:%.*]], i32 0, i32 0, i32 0)
+// CHECK-NEXT:    store <1024 x i1> [[TMP2]], ptr [[RESP:%.*]], align 128, !tbaa [[TBAA6]]
+// CHECK-NEXT:    ret void
+//
+void test_pmdmxvf16gerx2pp(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc, unsigned char *resp) {
+  __dmr1024 vdmr = *((__dmr1024 *)vdmrp);
+  __vector_pair vp = *((__vector_pair *)vpp);
+  __builtin_mma_pmdmxvf16gerx2pp(&vdmr, vp, vc, 0, 0, 0);
+  *((__dmr1024 *)resp) = vdmr;
+}
+
 // CHECK: [[TBAA2]] = !{[[META3:![0-9]+]], [[META3]], i64 0}
 // CHECK: [[META3]] = !{!"__vector_pair", [[META4:![0-9]+]], i64 0}
 // CHECK: [[META4]] = !{!"omnipotent char", [[META5:![0-9]+]], i64 0}
