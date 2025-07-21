@@ -40,16 +40,16 @@ void test_mma(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc)
   __builtin_mma_pmdmxvbf16gerx2pn(&vdmr, vp, vc, 0, 0, 0);
   __builtin_mma_pmdmxvbf16gerx2pp(&vdmr, vp, vc, 0, 0, 0);
 
-// CHECK: error: '__builtin_mma_dmxvbf16gerx2' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvbf16gerx2nn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvbf16gerx2np' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvbf16gerx2pn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvbf16gerx2pp' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2nn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2np' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2pn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2pp' needs target feature mma,paired-vector-memops
+// CHECK: error: '__builtin_mma_dmxvbf16gerx2' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvbf16gerx2nn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvbf16gerx2np' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvbf16gerx2pn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvbf16gerx2pp' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2nn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2np' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2pn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvbf16gerx2pp' needs target feature mma,isa-future-instructions
 
   // DMF VSX Vector 16-bitFloating-point GER 2x builtins.
 
@@ -64,14 +64,14 @@ void test_mma(unsigned char *vdmrp, unsigned char *vpp, vector unsigned char vc)
   __builtin_mma_pmdmxvf16gerx2pn(&vdmr, vp, vc, 0, 0, 0);
   __builtin_mma_pmdmxvf16gerx2pp(&vdmr, vp, vc, 0, 0, 0);
 
-// CHECK: error: '__builtin_mma_dmxvf16gerx2' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvf16gerx2nn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvf16gerx2np' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvf16gerx2pn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_dmxvf16gerx2pp' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvf16gerx2' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvf16gerx2nn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvf16gerx2np' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvf16gerx2pn' needs target feature mma,paired-vector-memops
-// CHECK: error: '__builtin_mma_pmdmxvf16gerx2pp' needs target feature mma,paired-vector-memops
+// CHECK: error: '__builtin_mma_dmxvf16gerx2' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvf16gerx2nn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvf16gerx2np' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvf16gerx2pn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_dmxvf16gerx2pp' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvf16gerx2' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvf16gerx2nn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvf16gerx2np' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvf16gerx2pn' needs target feature mma,isa-future-instructions
+// CHECK: error: '__builtin_mma_pmdmxvf16gerx2pp' needs target feature mma,isa-future-instructions
 }
